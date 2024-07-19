@@ -1,13 +1,11 @@
 const express = require('express');
+const {getHomePage,getlonghq} = require('../controllers/homeController');
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.send('Hello World with Long and nodemon!');
-})
 
-router.get('/longhq', (req, res) => {
-res.render('sample.ejs');
-})
+router.get('/', getHomePage);
+
+router.get('/longhq', getlonghq);
   
 
 module.exports = router;
