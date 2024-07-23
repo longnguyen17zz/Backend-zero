@@ -22,7 +22,11 @@ const getlonghq = (req, res)=> {
     res.render('sample.ejs');
 }
 
+const createNewUser = (req,res) => {
+    console.log(">>> check req.body" , req.body);
+    res.send('Create a new user');
+}
 
 module.exports = {
-    getHomePage, getlonghq
+    getHomePage, getlonghq, createNewUser
 }
