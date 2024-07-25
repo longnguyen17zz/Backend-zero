@@ -22,11 +22,27 @@ const getlonghq = (req, res)=> {
     res.render('sample.ejs');
 }
 
-const createNewUser = (req,res) => {
-    console.log(">>> check req.body" , req.body);
-    res.send('Create a new user');
+const getCreatePage = (req, res)=> {
+    res.render('create.ejs');
+}
+
+const createNewUser = async (req,res) => {
+    // console.log(">>> check req.body" , req.body);
+    let email = req.body.email;
+    let name = req.body.name;
+    let city = req.body.city;
+
+    // console.log(email , name , city);
+
+
+    let [results, fields] = await  connection.query(
+        `INSERT INTO Users (email,name,city)
+        VALUES (?, ?, ?)`,
+        [email, name, city]);
+        console.log(">>> check results :", results);
+        res.send("Create user succeed !")
 }
 
 module.exports = {
-    getHomePage, getlonghq, createNewUser
+    getHomePage, getlonghq, createNewUser, getCreatePage
 }
