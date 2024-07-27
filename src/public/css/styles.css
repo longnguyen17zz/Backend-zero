@@ -3,6 +3,10 @@
     margin: 0;
 }
 
+.d-none {
+    display: none;
+}
+
 .longhq {
     width: 500px;
     
